@@ -1,0 +1,23 @@
+#Configuration file for PacketLogger
+
+#variables available: {name}, {clientId}, {ip}, {time}
+logName: "{name}_{clientId}-{time}.log"
+
+#These selectors will match when ANY of the conditions is met
+selectors:
+ mode: match #When match, it will allow when a selector is matched. When refuse, it'll log when there is no match
+ name: #case insensitive
+  - shoghicp
+  - steve
+
+ clientId:
+  - 123456
+
+ ip:
+  - 192.168.0.1
+
+#These filters decide what packets will be logged
+filters:
+ packetId: #Filter by the packet id (faster)
+  default: true #Default value of the packets not specified here. true will log it, false will not
+  0xba: false #Example: FullChunkDataPacket won't be logged
