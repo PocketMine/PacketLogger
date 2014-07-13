@@ -7,17 +7,18 @@ logName: "{name}_{clientId}-{time}.log"
 selectors:
  mode: match #When match, it will allow when a selector is matched. When refuse, it'll log when there is no match
  name: #case insensitive
-  - shoghicp
-  - steve
+  #- shoghicp
+  #- steve
 
  clientId:
-  - 123456
+  #- 123456
 
  ip:
-  - 192.168.0.1
+  #- 192.168.0.1
 
 #These filters decide what packets will be logged
 filters:
  packetId: #Filter by the packet id (faster)
   default: true #Default value of the packets not specified here. true will log it, false will not
-  0xba: false #Example: FullChunkDataPacket won't be logged
+  #Example: FullChunkDataPacket won't be logged
+  #0xba: false

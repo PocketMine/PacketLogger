@@ -11,6 +11,7 @@ use pocketmine\network\protocol\Info;
 use pocketmine\network\protocol\LoginPacket;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\Server;
 use pocketmine\utils\Utils;
 
 class PacketLogger extends PluginBase implements Listener{
@@ -110,7 +111,9 @@ class PacketLogger extends PluginBase implements Listener{
 				$value = get_class($value);
 			}
 		}elseif(is_string($value)){
-			if(!Utils::printable($value)){
+			if($value === ""){
+				$value = "(empty)";
+			}elseif(preg_match('#([^\x20-\x7E])#', $value) > 0){
 				$value = "0x".bin2hex($value);
 			}
 		}elseif(is_array($value)){
@@ -202,6 +205,7 @@ class PacketLogger extends PluginBase implements Listener{
 						time()
 					], $this->logName);
 				$this->sessions[spl_object_hash($player)] = fopen($path, "w+b");
+				$this->getLogger()->info("Logging packets from ".$player->getName()."[/".$player->getAddress().":".$player->getPort()."], clientId ".$clientId);
 				$this->writeHeader($this->sessions[spl_object_hash($player)], $name, $clientId, $player);
 				$this->logInboundPacket($player, $packet);
 			}

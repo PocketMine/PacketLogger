@@ -7,11 +7,17 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../src" />
+          <root url="file://$USER_HOME$/PocketMine-MP/src" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../src" />
+          <root url="file://$USER_HOME$/PocketMine-MP/src" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
