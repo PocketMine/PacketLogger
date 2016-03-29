@@ -20,5 +20,10 @@ selectors:
 filters:
  packetId: #Filter by the packet id (faster)
   default: true #Default value of the packets not specified here. true will log it, false will not
-  #Example: FullChunkDataPacket won't be logged
-  #0xba: false
+  #Available packet ID's can be found in https://github.com/PocketMine/PocketMine-MP/blob/master/src/pocketmine/network/protocol/Info.php
+  #0x8f: false # LoginPacket
+  #0x92: false # BatchPacket
+  #0x95: false # StartGamePacket
+  #0xba: false # CraftingDataPacket
+  #0xbf: false # FullChunkDataPacket
+  #0xc3: false # PlayerListPacket
